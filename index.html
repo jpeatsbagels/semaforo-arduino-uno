@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semáforo Arduino UNO · Monitor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <header class="header">
+      <div>
+        <h1>Semáforo Arduino UNO</h1>
+        <p class="subtitle">Monitor en tiempo real del puerto activo</p>
+      </div>
+      <div id="connBadge" class="badge badge--off">● desconectado</div>
+    </header>
+
+    <section class="grid">
+      <!-- Semáforo -->
+      <div class="card traffic-card">
+        <div class="traffic-light" role="img" aria-label="Semáforo">
+          <div id="lampRed" class="lamp lamp--red"></div>
+          <div id="lampYellow" class="lamp lamp--yellow"></div>
+          <div id="lampGreen" class="lamp lamp--green"></div>
+        </div>
+        <div class="pins">
+          <span>Rojo · pin 2</span>
+          <span>Amarilla · pin 4</span>
+          <span>Verde · pin 5</span>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="card status-card">
+        <span class="label">STATUS</span>
+        <h2 id="statusName" class="status-name">—</h2>
+        <p class="status-sub">Puerto activo: <strong id="statusPin">—</strong> · Fuente: <strong id="statusSrc">—</strong></p>
+
+        <div class="countdown">
+          <span id="countdown" class="countdown-num">—</span>
+          <span class="countdown-unit">seg para el cambio</span>
+        </div>
+
+        <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+
+        <ul class="durations">
+          <li><i class="dot dot--green"></i>Verde <strong>15 s</strong></li>
+          <li><i class="dot dot--yellow"></i>Amarilla <strong>5 s</strong></li>
+          <li><i class="dot dot--red"></i>Roja <strong>20 s</strong></li>
+        </ul>
+
+        <p id="hint" class="hint">Esperando señal del Arduino UNO…</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
